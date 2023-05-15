@@ -1,15 +1,24 @@
 package com.srini.circuit.config;
 
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.client.RestTemplate;
 
+/**
+ * The type App config.
+ */
 @Configuration
 public class AppConfig {
 
+    /**
+     * Rest template rest template.
+     *
+     * @return the rest template
+     */
     @Bean
-    public WebClient webClient(){
-        return  WebClient.builder().build() ;
+    public RestTemplate restTemplate(){
+        return  new RestTemplateBuilder().build() ;
 
     }
 }

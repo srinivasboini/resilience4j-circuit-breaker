@@ -10,10 +10,18 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+/**
+ * The type Resilience 4 j circuit breaker application.
+ */
 @SpringBootApplication
 @Slf4j
 public class Resilience4jCircuitBreakerApplication {
 
+	/**
+	 * My registry event consumer registry event consumer.
+	 *
+	 * @return the registry event consumer
+	 */
 	@Bean
 	public RegistryEventConsumer<CircuitBreaker> myRegistryEventConsumer() {
 
@@ -35,6 +43,11 @@ public class Resilience4jCircuitBreakerApplication {
 		};
 	}
 
+	/**
+	 * The entry point of application.
+	 *
+	 * @param args the input arguments
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(Resilience4jCircuitBreakerApplication.class, args);
 	}
