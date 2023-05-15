@@ -1,27 +1,27 @@
 package com.srini.circuit.controller;
 
+import com.srini.circuit.service.AppService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/app")
 @RequiredArgsConstructor
+@Slf4j
 public class AppController {
-    private final WebClient webClient ;
+    private final AppService appService ;
 
 
     @GetMapping("/get")
-    public String get(){
-       return webClient.get()
-                .uri("https://dummyhost:8080/api/v1/get")
-                .retrieve()
-                .bodyToMono(String.class)
-                .block() ;
+    public Mono<String> get(){
+       return appService.get();
 
     }
+
 
 
 
